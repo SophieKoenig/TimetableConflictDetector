@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,12 +12,10 @@ public class Lecture {
         this.bookings = new ArrayList<>();
     }
 
-    // Method to add a booking to the lecture
     public void addBooking(String room, String day, int startTime, int endTime) {
         this.bookings.add(new Booking(room, day, startTime, endTime));
     }
 
-    // Inner class for Booking
     public class Booking {
         String room;
         String day;
@@ -44,7 +41,6 @@ public class Lecture {
                    '}';
         }
 
-        // Getters
         public String getRoom() { return room; }
         public String getDay() { return day; }
         public int getStartTime() { return startTime; }
@@ -64,7 +60,6 @@ public class Lecture {
         return sb.toString();
     }
 
-    // Getters for Lecture class fields
     public String getId() { return id; }
     public String getName() { return name; }
     public List<Booking> getBookings() { return bookings; }
