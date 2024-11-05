@@ -14,10 +14,11 @@ jobs:
         uses: actions/setup-java@v2
         with:
           distribution: 'temurin'
-          java-version: '17'  
+          java-version: '17'  # Change to your desired Java version
 
       - name: Compile Java
-        run: javac -d out src/*.java
+        run: javac -d out *.java
 
       - name: Run application
-        run: java -cp out src.Main
+        run: java -cp out Main
+
