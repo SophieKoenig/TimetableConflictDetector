@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class CurriculumConflictDetector {
@@ -15,13 +14,10 @@ public class CurriculumConflictDetector {
 
             for (int i = 0; i < lectureIds.size(); i++) {
                 Lecture lecture1 = lectureMap.get(lectureIds.get(i));
-                // Loop through each booking of lecture1
                 for (Lecture.Booking booking1 : lecture1.getBookings()) { // Accessing Booking as Lecture.Booking
                     for (int j = i + 1; j < lectureIds.size(); j++) {
                         Lecture lecture2 = lectureMap.get(lectureIds.get(j));
-                        // Loop through each booking of lecture2
                         for (Lecture.Booking booking2 : lecture2.getBookings()) { // Accessing Booking as Lecture.Booking
-                            // Check for conflicts
                             if (booking1.day.equals(booking2.day) && isConflict(booking1, booking2)) {
                                 System.out.println("Curriculum Conflict detected in " + curriculum + ": " +
                                         lecture1.name + " (" + booking1 + ") overlaps with " +
