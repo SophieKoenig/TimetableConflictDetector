@@ -1,1 +1,28 @@
+name: Java CI
+
+on: [push, pull_request]
+
+name: Java CI
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+
+      - name: Set up JDK
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Compile Java
+        run: javac -d out src/*.java
+
+      - name: Run application
+        run: java -cp out src.Main
 
