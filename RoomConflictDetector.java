@@ -1,4 +1,3 @@
-
 import java.util.*;
 
 public class RoomConflictDetector {
@@ -13,13 +12,11 @@ public class RoomConflictDetector {
 
                 for (Lecture.Booking existingBooking : bookingsInRoom) {
                     if (isConflict(existingBooking, booking)) {
-                        // Print conflict message in the desired format
                         System.out.println("Room Conflict detected in " + booking.getRoom() + " on " + booking.getDay() + ": " +
                                 "(" + lecture.getName() + " " + booking + ") overlaps with another booking " +
                                 "(" + getLectureName(existingBooking, lectures) + " " + existingBooking + ")");
                     }
                 }
-                // Add current booking to schedule map for future conflict checks
                 bookingsInRoom.add(booking);
                 schedule.put(key, bookingsInRoom);
             }
@@ -36,6 +33,6 @@ public class RoomConflictDetector {
                 return lecture.getName();
             }
         }
-        return "Unknown Lecture"; // Fallback if booking not found
+        return "Unknown Lecture";
     }
 }
