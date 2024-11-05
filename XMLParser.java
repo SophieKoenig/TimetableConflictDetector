@@ -1,4 +1,3 @@
-
 import org.w3c.dom.*;
 import javax.xml.parsers.*;
 import java.io.*;
@@ -20,7 +19,6 @@ public class XMLParser {
             String id = getTagValue(lectureElement, "id");
             String name = getTagValue(lectureElement, "name");
 
-            // Create a new Lecture instance
             Lecture lecture = new Lecture(id, name);
 
             NodeList bookings = lectureElement.getElementsByTagName("booking");
@@ -31,11 +29,9 @@ public class XMLParser {
                 int startTime = TimeUtils.convertTimeToMinutes(getTagValue(bookingElement, "startTime"));
                 int endTime = TimeUtils.convertTimeToMinutes(getTagValue(bookingElement, "endTime"));
 
-                // Use the addBooking method to add bookings to the lecture
                 lecture.addBooking(room, day, startTime, endTime);
             }
 
-            // Add the populated lecture to the lectures list
             lectures.add(lecture);
         }
         return lectures;
